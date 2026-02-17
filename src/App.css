@@ -1,0 +1,39 @@
+/* Version Switcher */
+.version-switcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9999;
+  display: flex;
+  gap: 2px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 50px;
+  padding: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.vs-btn {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  font-family: 'SctoGroteskA', system-ui, sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.vs-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.vs-btn.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}

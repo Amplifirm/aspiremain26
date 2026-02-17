@@ -1,0 +1,724 @@
+/* ===== VERSION B — CONFIG-INSPIRED ===== */
+.vb {
+  --coral: #FF5F3D;
+  --coral-hover: #FF7A5E;
+  --black: #0a0a0a;
+  --dark: #111111;
+  --dark2: #1a1a1a;
+  --white: #ffffff;
+  --gray: #888888;
+  --gray-light: #cccccc;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-dash: rgba(255, 255, 255, 0.25);
+
+  background: var(--black);
+  color: var(--white);
+  font-family: 'SctoGroteskA', sans-serif;
+}
+
+/* ===== TOP BAR ===== */
+.vb-topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 32px 48px 24px;
+  background: var(--coral);
+  color: var(--black);
+}
+
+.vb-topbar-left {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.vb-logo {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: 42px;
+  letter-spacing: -1px;
+  line-height: 1;
+  color: var(--black);
+}
+
+.vb-tagline {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: rgba(0, 0, 0, 0.6);
+  max-width: 200px;
+  line-height: 1.5;
+}
+
+.vb-topbar-right a {
+  font-size: 13px;
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ===== INFO BAR ===== */
+.vb-infobar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 48px;
+  background: var(--coral);
+  color: var(--black);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.vb-infobar-items {
+  display: flex;
+  gap: 48px;
+}
+
+.vb-infobar-item {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.vb-infobar-item strong {
+  display: block;
+  font-weight: 500;
+}
+
+.vb-infobar-item span {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.vb-infobar-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.vb-price-tag {
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.vb-btn-register {
+  padding: 10px 28px;
+  border-radius: 50px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.3s;
+  display: inline-block;
+}
+
+.vb-btn-register:hover {
+  background: #222;
+  transform: translateY(-1px);
+}
+
+/* ===== HERO ===== */
+.vb-hero {
+  background: var(--coral);
+  padding: 0 48px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.vb-hero-text {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(100px, 18vw, 260px);
+  color: var(--black);
+  line-height: 0.85;
+  text-align: center;
+  letter-spacing: -4px;
+  user-select: none;
+}
+
+/* ===== REGISTRATION CTA ===== */
+.vb-reg-cta {
+  background: var(--black);
+  padding: 72px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 48px;
+}
+
+.vb-reg-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  margin-bottom: 20px;
+  flex-shrink: 0;
+  padding-top: 8px;
+}
+
+.vb-reg-content {
+  flex: 1;
+}
+
+.vb-reg-content h2 {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.15;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.vb-reg-content h2 a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+  transition: color 0.3s;
+}
+
+.vb-reg-content h2 a:hover {
+  color: var(--coral);
+}
+
+.vb-reg-virtual {
+  font-size: 16px;
+  color: var(--gray);
+  margin-top: 12px;
+}
+
+.vb-reg-price {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(48px, 6vw, 80px);
+  color: var(--white);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ===== PHOTO STRIP ===== */
+.vb-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 3px;
+  background: var(--black);
+}
+
+.vb-photo-item {
+  aspect-ratio: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.vb-photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vb-photo-item:hover img {
+  transform: scale(1.06);
+}
+
+/* ===== AT A GLANCE / STATS ===== */
+.vb-stats {
+  background: var(--black);
+  padding: 96px 48px;
+  display: flex;
+  gap: 80px;
+}
+
+.vb-stats-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  flex-shrink: 0;
+  padding-top: 8px;
+  max-width: 120px;
+  line-height: 1.6;
+}
+
+.vb-stats-numbers h2 {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(36px, 5vw, 64px);
+  line-height: 1.2;
+  color: var(--white);
+}
+
+/* ===== WHY ATTEND ===== */
+.vb-why {
+  background: var(--black);
+  padding: 0 48px 96px;
+  display: flex;
+  gap: 80px;
+}
+
+.vb-why-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  flex-shrink: 0;
+  padding-top: 8px;
+  max-width: 120px;
+}
+
+.vb-why-content {
+  flex: 1;
+}
+
+.vb-why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 56px;
+}
+
+.vb-why-col h3 {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.vb-why-col p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--gray-light);
+}
+
+.vb-expect h3 {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(24px, 2.5vw, 32px);
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.vb-expect p {
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--gray-light);
+  max-width: 600px;
+}
+
+/* ===== HIGHLIGHTS ===== */
+.vb-highlights {
+  background: var(--black);
+  padding: 96px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.vb-highlights-header {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 48px;
+}
+
+.vb-highlights-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  flex-shrink: 0;
+  padding-top: 8px;
+  max-width: 120px;
+  line-height: 1.6;
+}
+
+.vb-highlights-title {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--white);
+}
+
+.vb-highlights-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.vb-highlight-card {
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.vb-highlight-card:hover {
+  opacity: 0.85;
+}
+
+.vb-highlight-thumb {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 14px;
+}
+
+.vb-highlight-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vb-highlight-card:hover .vb-highlight-thumb img {
+  transform: scale(1.04);
+}
+
+.vb-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+}
+
+.vb-highlight-card:hover .vb-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.vb-play-btn svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--black);
+  margin-left: 3px;
+}
+
+.vb-highlight-card h4 {
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 6px;
+  line-height: 1.4;
+}
+
+.vb-highlight-card .vb-speaker-name {
+  font-size: 13px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* ===== FAQ ===== */
+.vb-faq {
+  background: var(--black);
+  padding: 96px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.vb-faq-header {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 48px;
+}
+
+.vb-faq-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  flex-shrink: 0;
+  padding-top: 8px;
+  max-width: 120px;
+}
+
+.vb-faq-title {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(28px, 3.5vw, 44px);
+  color: var(--white);
+}
+
+.vb-faq-list {
+  margin-left: 200px;
+}
+
+.vb-faq-item {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.vb-faq-item:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.vb-faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 0;
+  font-size: 15px;
+  color: var(--white);
+}
+
+.vb-faq-arrow {
+  font-size: 18px;
+  color: var(--gray);
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.vb-faq-item.open .vb-faq-arrow {
+  transform: rotate(180deg);
+}
+
+.vb-faq-answer {
+  overflow: hidden;
+}
+
+.vb-faq-answer p {
+  padding: 0 0 24px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--gray-light);
+  max-width: 560px;
+}
+
+/* ===== TICKETS ===== */
+.vb-tickets {
+  background: var(--black);
+  padding: 96px 48px;
+  border-top: 1px solid var(--border);
+}
+
+.vb-tickets-header {
+  display: flex;
+  gap: 80px;
+  margin-bottom: 48px;
+}
+
+.vb-tickets-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--gray);
+  flex-shrink: 0;
+  padding-top: 8px;
+  max-width: 120px;
+}
+
+.vb-tickets-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.vb-tickets-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-left: 200px;
+}
+
+.vb-ticket-card {
+  border: 1px dashed var(--border-dash);
+  border-radius: 12px;
+  padding: 40px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.vb-ticket-card:hover {
+  border-color: var(--coral);
+  background: rgba(255, 95, 61, 0.04);
+}
+
+.vb-ticket-card h3 {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: 36px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.vb-ticket-details {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--gray-light);
+  margin-bottom: 12px;
+}
+
+.vb-ticket-price {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+
+.vb-ticket-note {
+  font-size: 12px;
+  color: var(--gray);
+  margin-bottom: 28px;
+}
+
+.vb-ticket-btn {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  text-align: center;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: var(--black);
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.vb-ticket-btn:hover {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+/* ===== FOOTER ===== */
+.vb-footer-dark {
+  background: var(--white);
+  color: var(--black);
+  padding: 72px 48px;
+}
+
+.vb-footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 72px;
+}
+
+.vb-footer-logo {
+  font-family: 'PPPangaia', serif;
+  font-weight: 200;
+  font-size: clamp(48px, 8vw, 100px);
+  color: var(--black);
+  line-height: 0.9;
+  letter-spacing: -2px;
+}
+
+.vb-footer-links {
+  display: flex;
+  gap: 48px;
+}
+
+.vb-footer-link-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vb-footer-link-col a {
+  font-size: 13px;
+  color: var(--black);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-style: dashed;
+  transition: opacity 0.2s;
+}
+
+.vb-footer-link-col a:hover { opacity: 0.6; }
+
+.vb-footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.vb-footer-brand {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.vb-footer-legal {
+  display: flex;
+  gap: 24px;
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.vb-footer-legal a {
+  color: var(--gray);
+  transition: color 0.2s;
+  text-decoration: none;
+}
+
+.vb-footer-legal a:hover { color: var(--black); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .vb-stats, .vb-why, .vb-faq-header, .vb-highlights-header, .vb-tickets-header {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .vb-stats-label, .vb-why-label, .vb-faq-label, .vb-highlights-label, .vb-tickets-label {
+    max-width: none;
+  }
+  .vb-faq-list, .vb-tickets-grid {
+    margin-left: 0;
+  }
+  .vb-photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vb-footer-top {
+    flex-direction: column;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 768px) {
+  .vb-topbar, .vb-infobar, .vb-reg-cta, .vb-stats, .vb-why,
+  .vb-highlights, .vb-faq, .vb-tickets, .vb-footer-dark {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .vb-hero {
+    padding: 0 24px;
+    min-height: 35vh;
+  }
+  .vb-infobar-items {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .vb-reg-cta {
+    flex-direction: column;
+  }
+  .vb-why-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  .vb-highlights-grid {
+    grid-template-columns: 1fr;
+  }
+  .vb-tickets-grid {
+    grid-template-columns: 1fr;
+  }
+  .vb-footer-links {
+    flex-direction: column;
+    gap: 24px;
+  }
+  .vb-footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+  }
+}
