@@ -12,11 +12,13 @@ import {
 import './VersionB.css'
 
 /* ===== VARIANTS ===== */
+const ease = [0.16, 1, 0.3, 1] as const
+
 const fadeUp = {
   hidden: { opacity: 0, y: 40 },
   visible: (i: number = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.7, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.7, delay: i * 0.1, ease },
   }),
 }
 
@@ -32,7 +34,7 @@ const scaleIn = {
   hidden: { opacity: 0, scale: 0.92 },
   visible: (i: number = 0) => ({
     opacity: 1, scale: 1,
-    transition: { duration: 0.6, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] },
+    transition: { duration: 0.6, delay: i * 0.1, ease },
   }),
 }
 
@@ -51,7 +53,7 @@ function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
 
   useEffect(() => {
     if (isInView) {
-      const c = animate(count, target, { duration: 2, ease: [0.16, 1, 0.3, 1] })
+      const c = animate(count, target, { duration: 2, ease })
       return c.stop
     }
   }, [isInView, count, target])
@@ -79,7 +81,7 @@ function AnimatedLetters({ text, className }: { text: string; className?: string
             hidden: { opacity: 0, y: 80, rotateX: -60 },
             visible: {
               opacity: 1, y: 0, rotateX: 0,
-              transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] },
+              transition: { duration: 0.6, ease },
             },
           }}
           style={{ display: 'inline-block', transformOrigin: 'bottom' }}
@@ -311,7 +313,7 @@ export function VersionB() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                    transition={{ duration: 0.3, ease }}
                   >
                     <p>{faq.a}</p>
                   </motion.div>
