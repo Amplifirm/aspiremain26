@@ -99,18 +99,58 @@ export function VersionB() {
   const scaleX = useSpring(scrollYProgress, { stiffness: 80, damping: 30, restDelta: 0.001 })
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
-  const photos = [
-    '/images/conference.jpg',
-    '/images/events-section.jpg',
-    '/images/incentive.jpg',
-    '/images/sailing.jpg',
+  const tracks = [
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M12 2a4 4 0 0 1 4 4c0 1.5-.8 2.8-2 3.5v1.5h-4V9.5A4 4 0 0 1 12 2z" />
+          <path d="M10 11h4v2a2 2 0 0 1-4 0v-2z" />
+          <path d="M9 16h6" /><path d="M10 19h4" />
+          <path d="M8 22h8" />
+        </svg>
+      ),
+      title: 'AI & Innovation',
+      desc: 'Practical AI strategies for SMBs — from automation and copilots to revenue-driving machine learning implementations.',
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M6.5 19a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+          <path d="M17.5 19a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+          <path d="M12 10a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z" />
+          <path d="M12 10v3" /><path d="M6.5 14v-1a5.5 5.5 0 0 1 11 0v1" />
+        </svg>
+      ),
+      title: 'Cloud & Infrastructure',
+      desc: 'Build scalable, resilient IT foundations with modern cloud architecture, hybrid solutions, and infrastructure best practices.',
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" />
+          <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+          <circle cx="12" cy="16" r="1" />
+        </svg>
+      ),
+      title: 'Cybersecurity',
+      desc: 'Zero-trust frameworks, threat detection, and compliance strategies to protect your business from evolving cyber risks.',
+    },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+        </svg>
+      ),
+      title: 'Business Growth',
+      desc: 'Leadership insights, operational excellence, and growth strategies from founders and executives who\'ve scaled successfully.',
+    },
   ]
 
-  const highlights = [
-    { img: '/images/event-anniversary.jpg', title: 'AI strategies that actually drive revenue for SMBs', speaker: 'Bryan Antepara, Cloud Engineer' },
-    { img: '/images/event-cruise.jpg', title: 'Building scalable IT infrastructure from day one', speaker: 'Carl Mazzanti, President, eMazzanti' },
-    { img: '/images/event-sailing.jpg', title: 'Zero-trust cybersecurity for the modern workplace', speaker: 'Brindavani Pathuri, Network Engineer' },
-    { img: '/images/conference.jpg', title: 'Championship culture: leadership lessons from sports', speaker: 'Dan Karosen, Co-Founder, FC Motown' },
+  const sessions = [
+    { title: 'AI strategies that actually drive revenue for SMBs', speaker: 'Bryan Antepara', role: 'Cloud Engineer', track: 'AI & Innovation' },
+    { title: 'Building scalable IT infrastructure from day one', speaker: 'Carl Mazzanti', role: 'President, eMazzanti', track: 'Cloud & Infrastructure' },
+    { title: 'Zero-trust cybersecurity for the modern workplace', speaker: 'Brindavani Pathuri', role: 'Network Engineer', track: 'Cybersecurity' },
+    { title: 'Championship culture: leadership lessons from sports', speaker: 'Dan Karosen', role: 'Co-Founder, FC Motown', track: 'Business Growth' },
   ]
 
   const faqs = [
@@ -123,7 +163,7 @@ export function VersionB() {
   return (
     <div className="vb">
       {/* Scroll Progress */}
-      <motion.div className="scroll-progress" style={{ scaleX, background: 'linear-gradient(90deg, #FF5F3D, #FFB800)' }} />
+      <motion.div className="scroll-progress" style={{ scaleX, background: 'linear-gradient(90deg, #9D1DF2, #296CF2)' }} />
 
       {/* ===== TOP BAR ===== */}
       <motion.div
@@ -188,20 +228,28 @@ export function VersionB() {
         <motion.div className="vb-reg-price" variants={fadeUp} custom={2}>FREE</motion.div>
       </motion.section>
 
-      {/* ===== PHOTO STRIP ===== */}
-      <motion.div
-        className="vb-photos"
+      {/* ===== STRATEGIC TRACKS ===== */}
+      <motion.section
+        className="vb-tracks"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-50px' }}
         variants={stagger}
       >
-        {photos.map((src, i) => (
-          <motion.div key={i} className="vb-photo-item" variants={scaleIn} custom={i}>
-            <img src={src} alt={`Aspire moment ${i + 1}`} />
-          </motion.div>
-        ))}
-      </motion.div>
+        <div className="vb-tracks-header">
+          <motion.div className="vb-tracks-label" variants={fadeIn}>4 STRATEGIC TRACKS</motion.div>
+          <motion.h2 className="vb-tracks-title" variants={fadeUp}>Deep dives across every dimension of your business</motion.h2>
+        </div>
+        <motion.div className="vb-tracks-grid" variants={stagger}>
+          {tracks.map((t, i) => (
+            <motion.div key={i} className="vb-track-card" variants={fadeUp} custom={i}>
+              <div className="vb-track-icon">{t.icon}</div>
+              <h3>{t.title}</h3>
+              <p>{t.desc}</p>
+            </motion.div>
+          ))}
+        </motion.div>
+      </motion.section>
 
       {/* ===== STATS ===== */}
       <motion.section
@@ -252,29 +300,34 @@ export function VersionB() {
         </div>
       </motion.section>
 
-      {/* ===== HIGHLIGHTS ===== */}
+      {/* ===== FEATURED SESSIONS ===== */}
       <motion.section
-        className="vb-highlights"
+        className="vb-sessions"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: '-80px' }}
         variants={stagger}
       >
-        <div className="vb-highlights-header">
-          <motion.div className="vb-highlights-label" variants={fadeIn}>MEMORABLE MOMENTS</motion.div>
-          <motion.h2 className="vb-highlights-title" variants={fadeUp}>Highlights from Aspire 2025</motion.h2>
+        <div className="vb-sessions-header">
+          <motion.div className="vb-sessions-label" variants={fadeIn}>FEATURED SESSIONS</motion.div>
+          <motion.h2 className="vb-sessions-title" variants={fadeUp}>What's on the agenda</motion.h2>
         </div>
-        <motion.div className="vb-highlights-grid" variants={stagger}>
-          {highlights.map((h, i) => (
-            <motion.div key={i} className="vb-highlight-card" variants={fadeUp} custom={i}>
-              <div className="vb-highlight-thumb">
-                <img src={h.img} alt={h.title} />
-                <div className="vb-play-btn">
-                  <svg viewBox="0 0 24 24"><polygon points="8,5 20,12 8,19" /></svg>
+        <motion.div className="vb-sessions-list" variants={stagger}>
+          {sessions.map((s, i) => (
+            <motion.div key={i} className="vb-session-card" variants={fadeUp} custom={i}>
+              <div className="vb-session-number">{String(i + 1).padStart(2, '0')}</div>
+              <div className="vb-session-content">
+                <div className="vb-session-track">{s.track}</div>
+                <h4>{s.title}</h4>
+                <div className="vb-session-speaker">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="vb-session-speaker-icon">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                    <circle cx="12" cy="7" r="4" />
+                  </svg>
+                  <span><strong>{s.speaker}</strong> — {s.role}</span>
                 </div>
               </div>
-              <h4>{h.title}</h4>
-              <div className="vb-speaker-name">{h.speaker}</div>
+              <div className="vb-session-arrow">&rarr;</div>
             </motion.div>
           ))}
         </motion.div>
